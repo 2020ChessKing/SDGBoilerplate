@@ -34,8 +34,6 @@ function setup()
 function draw() {
   background(color);
 
-  if(x === true)
-  {
     if(keyDown('space'))
     {        
       runner.velocityY = -17;
@@ -48,7 +46,6 @@ function draw() {
       runner.velocityY = runner.velocityY + 1.2;
       x = false;
     }
-  }
 
   if(mousePressedOver(screen1.playB))
     {
@@ -81,17 +78,6 @@ function draw() {
   if(gamestate === 3)
   {
     ground.y = height * 7/8;
-    runner.collide(screen3.prt1);
-    runner.collide(screen3.prt2);
-    runner.collide(screen3.prt3); 
-    runner.collide(screen3.prt4); 
-    runner.collide(screen3.prt5); 
-    runner.collide(screen3.prt6); 
-    runner.collide(screen3.prt7); 
-    runner.collide(screen3.prt8); 
-    runner.collide(screen3.prt9); 
-    runner.collide(screen3.prt10); 
-    runner.collide(screen3.prt12); 
 
     if(runner.isTouching(ground))
     {
