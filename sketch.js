@@ -1,11 +1,14 @@
 var width, height, color, gamestate, x, limit;
 var screen1, screen2, screen3;
 var running, jumping;
-var runner, playB, levels1, levels2, levels3, levels4, ground;
+var runner, playB, levels1, levels2, levels3, levels4, ground, hat;
 
 function preload()
 {
   running = loadAnimation("running1-removebg-preview (1).png", "running2-removebg-preview (1).png", "running3-removebg-preview (1).png", "running4-removebg-preview (1).png", 'running5-removebg-preview (1).png', 'running6-removebg-preview (1).png', 'running7-removebg-preview (1).png', 'running8-removebg-preview (1).png');
+  // running = loadAnimation("santa-1.png", "santa-2.png");
+  hat = loadImage('hat.png');
+
 }
 
 function setup()
@@ -79,67 +82,76 @@ function draw() {
   {
     ground.y = height * 7/8;
 
-    if(runner.isTouching(ground))
-    {
-      x = true;
-    }
-    else if(runner.isTouching(screen3.prt1))
-    {
-      x = true;
-    }
-    else if(runner.isTouching(screen3.prt2))
-    {
-      x = true;
-    }
-    else if(runner.isTouching(screen3.prt3))
-    {
-      x = true;
-    }
-    else if(runner.isTouching(screen3.prt4))
-    {
-      x = true;
-    }
-    else if(runner.isTouching(screen3.prt5))
-    {
-      x = true;
-    }
-    else if(runner.isTouching(screen3.prt6))
-    {
-      x = true;
-    }
-    else if(runner.isTouching(screen3.prt7))
-    {
-      x = true;
-    }
-    else if(runner.isTouching(screen3.prt8))
-    {
-      x = true;
-    }
-    else if(runner.isTouching(screen3.prt9))
-    {
-      x = true;
-    }
-    else if(runner.isTouching(screen3.prt10))
-    {
-      x = true;
-    }
-    else if(runner.isTouching(screen3.prt11))
-    {
-      x = true;
-    }
-    else if(runner.isTouching(screen3.prt12))
-    {
-      x = true;
-    }
-    console.log(x)
+    runner.collide(screen3.prt1);
+    runner.collide(screen3.prt2);
+    runner.collide(screen3.prt3);
+    runner.collide(screen3.prt4);
+    runner.collide(screen3.prt5);
+    runner.collide(screen3.prt6);
+    // runner.collide(screen3.prt7);
+    // runner.collide(screen3.prt8);
+
+    // if(runner.isTouching(ground))
+    // {
+    //   x = true;
+    // }
+    // else if(runner.isTouching(screen3.prt1))
+    // {
+    //   x = true;
+    // }
+    // else if(runner.isTouching(screen3.prt2))
+    // {
+    //   x = true;
+    // }
+    // else if(runner.isTouching(screen3.prt3))
+    // {
+    //   x = true;
+    // }
+    // else if(runner.isTouching(screen3.prt4))
+    // {
+    //   x = true;
+    // }
+    // else if(runner.isTouching(screen3.prt5))
+    // {
+    //   x = true;
+    // }
+    // else if(runner.isTouching(screen3.prt6))
+    // {
+    //   x = true;
+    // }
+    // else if(runner.isTouching(screen3.prt7))
+    // {
+    //   x = true;
+    // }
+    // else if(runner.isTouching(screen3.prt8))
+    // {
+    //   x = true;
+    // }
+    // else if(runner.isTouching(screen3.prt9))
+    // {
+    //   x = true;
+    // }
+    // else if(runner.isTouching(screen3.prt10))
+    // {
+    //   x = true;
+    // }
+    // else if(runner.isTouching(screen3.prt11))
+    // {
+    //   x = true;
+    // }
+    // else if(runner.isTouching(screen3.prt12))
+    // {
+    //   x = true;
+    // }
+    // console.log(x)
 
 
 
-    screen3.prt2.collide(ground);
-    screen3.prt4.collide(ground);
-    screen3.prt5.collide(ground); 
-    screen3.prt10.collide(screen3.prt8); 
-    screen3.prt12.collide(ground); 
+    // screen3.prt2.collide(ground);
+    // screen3.prt4.collide(ground);
+    // screen3.prt5.collide(ground); 
+    // screen3.prt10.collide(screen3.prt8); 
+    // screen3.prt12.collide(ground); 
 
   }
 
@@ -149,4 +161,7 @@ function draw() {
   runner.velocityY = runner.velocityY + 1;
   // text('icons made by Freepick at www.flaticon.com', width/2, height + 10);
   drawSprites();
+
+  imageMode(CENTER);
+  image(hat, runner.x - 10, runner.y - 20, 40, 37);
 }
